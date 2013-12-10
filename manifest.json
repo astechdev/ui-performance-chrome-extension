@@ -5,8 +5,10 @@
     "permissions": [
         "tabs",
         "activeTab",
+        "cookies",
         "file://*/",
-        "http://*/"
+        "http://*/",
+        "https://*/"
     ],
     "background": {
         "persistent": true,
