@@ -1,0 +1,25 @@
+{
+    "name": "XUP Performance",
+    "description": "Testing XUP Performance",
+    "version": "0.1.0",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "file://*/",
+        "http://*/"
+    ],
+    "background": {
+        "persistent": true,
+        "scripts": ["background.js"]
+    },
+    // "content_scripts": [
+    //   {
+    //     "matches": ["file://*"],
+    //     "js": ["content.js"]
+    //   }
+    // ],
+    "browser_action": {
+        "default_title": "XUP Performance"
+    },
+    "manifest_version": 2
+}
