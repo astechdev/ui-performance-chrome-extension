@@ -13,6 +13,8 @@ Click on "Load unpacked extensions"
 
 Navigate to the folder "ui-performance-chrome-extension" that you cloned from git
 
+![uipt](https://github.disney.com/sartioli/ui-performance-chrome-extension/raw/master/uipt.png "uipt")
+
 Make sure you check: "Allow access to file URLs" for the "UI Performace Tool" extension you just added
 
 If you make changes to any of the files, you will want to click the "Reload" button the "UI Performace Tool" extension
