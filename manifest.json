@@ -1,6 +1,6 @@
 {
-    "name": "XUP Performance",
-    "description": "Testing XUP Performance",
+    "name": "UI Performance Tool",
+    "description": "Testing UI Performance",
     "version": "0.1.0",
     "permissions": [
         "tabs",
@@ -21,7 +21,7 @@
     //   }
     // ],
     "browser_action": {
-        "default_title": "XUP Performance"
+        "default_title": "UI Performance Tool"
     },
     "manifest_version": 2
 }
