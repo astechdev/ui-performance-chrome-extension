@@ -1,0 +1,186 @@
+### INFO: Setting Up Page 
+### INFO: Done Removing Cookies 
+### INFO: Starting Test | Page: https://wdprolt02.disney.go.com/resorts/ 
+### INFO: Description: 'resorts xup=false pre-avail'
+download, domInteractive, loadEventStart, loadEventEnd 
+6.195, 2.005, 14.616, 14.623 
+3.894, 2.804, 7.305, 7.316 
+3.372, 2.45, 9.099, 9.107 
+6.491, 2.249, 7.94, 7.948 
+3.51, 5.329, 9.285, 9.295 
+3.33, 2.197, 8.7, 8.708 
+5.167, 1.753, 3.951, 3.958 
+3.505, 4.734, 7.606, 7.614 
+3.263, 4.426, 6.423, 6.43 
+3.119, 1.912, 6.52, 6.53 
+### INFO: Setting Up Page 
+### INFO: Done Removing Cookies 
+### INFO: Done Adding Cookie: enableLodgingXUp 
+### INFO: Starting Test | Page: https://wdprolt02.disney.go.com/resorts/ 
+### INFO: Description: 'resorts xup=true pre-avail'
+download, domInteractive, loadEventStart, loadEventEnd 
+5.071, 2.583, 4.669, 4.676 
+2.872, 2.983, 11.632, 11.643 
+3.156, 2.01, 3.826, 3.835 
+2.617, 1.576, 3.098, 3.106 
+2.638, 1.424, 3.139, 3.149 
+2.366, 1.514, 3.034, 3.041 
+3.595, 1.303, 2.823, 2.829 
+2.737, 1.275, 3.007, 3.019 
+4.365, 1.21, 2.79, 2.796 
+3.401, 1.374, 2.927, 2.935 
+### INFO: Setting Up Page 
+### INFO: Done Removing Cookies 
+### INFO: Done Adding Cookie: enableLodgingXUp 
+### INFO: Done Adding Cookie: roomForm_jar 
+### INFO: Starting Test | Page: https://wdprolt02.disney.go.com/resorts/ 
+### INFO: Description: 'resorts xup=true post-avail'
+download, domInteractive, loadEventStart, loadEventEnd 
+6.739, 1.964, 3.872, 3.88 
+5.994, 1.204, 2.896, 2.905 
+6.201, 2.218, 4.539, 4.546 
+6.431, 3.389, 6.286, 6.294 
+7.488, 4.047, 7.091, 7.1 
+6.183, 2.06, 7.557, 7.564 
+7.392, 2.511, 6.49, 6.498 
+7.557, 2.56, 6.188, 6.197 
+6.231, 13.128, 19.532, 19.54 
+5.563, 5.207, 11.778, 11.787 
+### INFO: Setting Up Page 
+### INFO: Done Removing Cookies 
+### INFO: Starting Test | Page: https://wdprolt02.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/ 
+### INFO: Description: 'ak lodge xup=false pre-avail'
+download, domInteractive, loadEventStart, loadEventEnd 
+2.479, 1.433, 4.501, 4.774 
+2.988, 1.832, 2.307, 2.397 
+2.401, 19.644, 22.487, 22.575 
+6.08, 6.213, 12.133, 12.236 
+3.077, 3.94, 12.701, 12.792 
+5.762, 6.828, 9.504, 9.585 
+3.017, 2.26, 4.753, 4.829 
+2.303, 2.809, 3.375, 3.459 
+5.776, 1.387, 1.901, 1.994 
+3.749, 8.522, 10.731, 10.809 
+### INFO: Setting Up Page 
+### INFO: Done Removing Cookies 
+### INFO: Done Adding Cookie: enableLodgingXUp 
+### INFO: Starting Test | Page: https://wdprolt02.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/ 
+### INFO: Description: 'ak lodge xup=true pre-avail'
+download, domInteractive, loadEventStart, loadEventEnd 
+3.388, 5.104, 6.656, 6.742 
+2.243, 2.266, 2.751, 2.845 
+2.392, 2.763, 6.088, 6.182 
+7.103, 8.036, 8.95, 9.029 
+2.635, 5.996, 7.306, 7.395 
+3.206, 4.423, 5.683, 5.761 
+2.601, 1.936, 2.773, 2.867 
+3.759, 1.831, 3.558, 3.637 
+4.069, 9.596, 12.616, 12.703 
+2.474, 2.173, 3.521, 3.598 
+### INFO: Setting Up Page 
+### INFO: Done Removing Cookies 
+### INFO: Done Adding Cookie: enableLodgingXUp 
+### INFO: Done Adding Cookie: roomForm_jar 
+### INFO: Starting Test | Page: https://wdprolt02.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/ 
+### INFO: Description: 'ak lodge xup=true post-avail'
+download, domInteractive, loadEventStart, loadEventEnd 
+2.66, 1.997, 3.251, 3.357 
+2.957, 1.997, 3.294, 3.375 
+2.37, 2.212, 3.14, 3.224 
+4.179, 1.654, 10.064, 10.155 
+1.85, 7.482, 8.647, 8.727 
+2.476, 1.489, 6.542, 6.634 
+2.35, 2.528, 5.112, 5.187 
+4.774, 1.876, 6.368, 6.459 
+3.499, 3.163, 9.593, 9.69 
+6.08, 1.928, 4.02, 4.098 
+### INFO: Done Iterating Through Pages 
+[Object, Object, Object, Object, Object, Object]
+ 
+
+
+###### FINAL REPORT ###### 
+
+### https://wdprolt02.disney.go.com/resorts/ ###
+### resorts xup=false pre-avail ###
+download, domInteractive, loadEventStart, loadEventEnd 
+# AVERAGE # 
+4.185, 2.986, 8.145, 8.153 
+# FASTEST # 
+3.119, 1.753, 3.951, 3.958 
+# SLOWEST # 
+6.491, 5.329, 14.616, 14.623 
+# STANDARD DEVIATION # 
+1.212, 1.255, 2.62, 2.62 
+# VARIANCE # 
+1.47, 1.574, 6.863, 6.862 
+
+### https://wdprolt02.disney.go.com/resorts/ ###
+### resorts xup=true pre-avail ###
+download, domInteractive, loadEventStart, loadEventEnd 
+# AVERAGE # 
+3.282, 1.725, 4.094, 4.103 
+# FASTEST # 
+2.366, 1.21, 2.79, 2.796 
+# SLOWEST # 
+5.071, 2.983, 11.632, 11.643 
+# STANDARD DEVIATION # 
+0.816, 0.577, 2.571, 2.572 
+# VARIANCE # 
+0.666, 0.333, 6.611, 6.615 
+
+### https://wdprolt02.disney.go.com/resorts/ ###
+### resorts xup=true post-avail ###
+download, domInteractive, loadEventStart, loadEventEnd 
+# AVERAGE # 
+6.578, 3.829, 7.623, 7.631 
+# FASTEST # 
+5.563, 1.204, 2.896, 2.905 
+# SLOWEST # 
+7.557, 13.128, 19.532, 19.54 
+# STANDARD DEVIATION # 
+0.655, 3.287, 4.587, 4.587 
+# VARIANCE # 
+0.429, 10.805, 21.043, 21.043 
+
+### https://wdprolt02.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/ ###
+### ak lodge xup=false pre-avail ###
+download, domInteractive, loadEventStart, loadEventEnd 
+# AVERAGE # 
+3.763, 5.487, 8.439, 8.545 
+# FASTEST # 
+2.303, 1.387, 1.901, 1.994 
+# SLOWEST # 
+6.08, 19.644, 22.487, 22.575 
+# STANDARD DEVIATION # 
+1.438, 5.278, 6.088, 6.077 
+# VARIANCE # 
+2.068, 27.854, 37.063, 36.932 
+
+### https://wdprolt02.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/ ###
+### ak lodge xup=true pre-avail ###
+download, domInteractive, loadEventStart, loadEventEnd 
+# AVERAGE # 
+3.387, 4.412, 5.99, 6.076 
+# FASTEST # 
+2.243, 1.831, 2.751, 2.845 
+# SLOWEST # 
+7.103, 9.596, 12.616, 12.703 
+# STANDARD DEVIATION # 
+1.37, 2.61, 2.963, 2.962 
+# VARIANCE # 
+1.876, 6.813, 8.78, 8.776 
+
+### https://wdprolt02.disney.go.com/resorts/animal-kingdom-lodge/rates-rooms/ ###
+### ak lodge xup=true post-avail ###
+download, domInteractive, loadEventStart, loadEventEnd 
+# AVERAGE # 
+3.32, 2.633, 6.003, 6.091 
+# FASTEST # 
+1.85, 1.489, 3.14, 3.224 
+# SLOWEST # 
+6.08, 7.482, 10.064, 10.155 
+# STANDARD DEVIATION # 
+1.257, 1.677, 2.542, 2.544 
+# VARIANCE # 
+1.579, 2.813, 6.463, 6.471 
