@@ -9,6 +9,7 @@ var pages = [
     {
         page: 'resorts/',
         description: 'resorts xup=false pre-avail',
+        stats: {},
         cookies: []
     },
     {
@@ -81,8 +82,6 @@ var pages_iterator = 0;
 var repetitions = 10;
 var rep_iterator = 1;
 
-var stats = [];
-
 var setupPage = function(tabId) {
 
     if (pages_iterator < pages.length) {
@@ -104,7 +103,7 @@ var setupPage = function(tabId) {
             //Set Cookies
             pages[pages_iterator].cookies.forEach(function(cookie) {
                 chrome.cookies.set(cookie);
-                console.log("### INFO: Done Adding Cookies");
+                console.log("### INFO: Done Adding Cookie: %s", cookie.name);
             });
 
             //Reload and start test
@@ -124,19 +123,27 @@ var setupPage = function(tabId) {
 
     } else {
         console.log('### INFO: Done Iterating Through Pages');
-        console.log(stats);
-        //printReport();
+        console.log(pages);
+        printReport();
     }
-
 
 };
 
 var printReport = function() {
 
-    stats.foreach(function(elem, index, array) {
+    console.log("\n\n###### FINAL REPORT ######");
 
-        console.log(index);
-        console.log('    download');
+    pages.forEach(function(elem) {
+
+        console.log("\n### %s%s ###\n### %s ###\n# AVERAGE #\n" +
+            "download, domInteractive, loadEventStart, loadEventEnd",
+            url, elem.page, elem.description);
+        console.log("%s, %s, %s, %s", elem.stats.download, elem.stats.domInteractive, elem.stats.loadEventStart, elem.stats.loadEventEnd);
+        console.log("# FASTEST #");
+        console.log("%s, %s, %s, %s", elem.stats.fastest.download, elem.stats.fastest.domInteractive, elem.stats.fastest.loadEventStart, elem.stats.fastest.loadEventEnd);
+        console.log("# SLOWEST #");
+        console.log("%s, %s, %s, %s", elem.stats.slowest.download, elem.stats.slowest.domInteractive, elem.stats.slowest.loadEventStart, elem.stats.slowest.loadEventEnd);
+
     });
 
 }
@@ -147,7 +154,8 @@ var updateUrl = function(tabId) {
 
     if (rep_iterator == 1) {
         //First Time Through
-        stats[pages[pages_iterator].description] = {
+
+        pages[pages_iterator].stats = {
             download: 0, domInteractive: 0, loadEventStart: 0, loadEventEnd: 0,
             fastest: {download: 0, domInteractive: 0, loadEventStart: 0, loadEventEnd: 0},
             slowest: {download: 0, domInteractive: 0, loadEventStart: 0, loadEventEnd: 0}
@@ -172,42 +180,42 @@ var listener = function (tabId, changeInfo, tab) {
 
 var handleResponse = function(tabId, results) {
 
-    var desc = stats[pages[pages_iterator].description];
+    var stats = pages[pages_iterator].stats;
 
     console.log('%s, %s, %s, %s',
         results.download, results.domInteractive, results.loadEventStart, results.loadEventEnd );
 
     if (rep_iterator == 1) {
-        desc.download = results.download;
-        desc.domInteractive = results.domInteractive;
-        desc.loadEventStart = results.loadEventStart;
-        desc.loadEventEnd = results.loadEventEnd;
+        stats.download = results.download;
+        stats.domInteractive = results.domInteractive;
+        stats.loadEventStart = results.loadEventStart;
+        stats.loadEventEnd = results.loadEventEnd;
 
-        desc.fastest.download = results.download;
-        desc.fastest.domInteractive = results.domInteractive;
-        desc.fastest.loadEventStart = results.loadEventStart;
-        desc.fastest.loadEventEnd = results.loadEventEnd;
+        stats.fastest.download = results.download;
+        stats.fastest.domInteractive = results.domInteractive;
+        stats.fastest.loadEventStart = results.loadEventStart;
+        stats.fastest.loadEventEnd = results.loadEventEnd;
 
-        desc.slowest.download = results.download;
-        desc.slowest.domInteractive = results.domInteractive;
-        desc.slowest.loadEventStart = results.loadEventStart;
-        desc.slowest.loadEventEnd = results.loadEventEnd;
+        stats.slowest.download = results.download;
+        stats.slowest.domInteractive = results.domInteractive;
+        stats.slowest.loadEventStart = results.loadEventStart;
+        stats.slowest.loadEventEnd = results.loadEventEnd;
 
     } else {
-        desc.download = (desc.download + results.download)/2;
-        desc.domInteractive = (desc.domInteractive + results.domInteractive)/2;
-        desc.loadEventStart = (desc.loadEventStart + results.loadEventStart)/2;
-        desc.loadEventEnd = (desc.loadEventEnd + results.loadEventEnd)/2;
+        stats.download = (stats.download + results.download)/2;
+        stats.domInteractive = (stats.domInteractive + results.domInteractive)/2;
+        stats.loadEventStart = (stats.loadEventStart + results.loadEventStart)/2;
+        stats.loadEventEnd = (stats.loadEventEnd + results.loadEventEnd)/2;
 
-        if (desc.fastest.download > results.download) desc.fastest.download = results.download;
-        if (desc.fastest.domInteractive > results.domInteractive) desc.fastest.domInteractive = results.domInteractive;
-        if (desc.fastest.loadEventStart > results.loadEventStart) desc.fastest.loadEventStart = results.loadEventStart;
-        if (desc.fastest.loadEventEnd > results.loadEventEnd) desc.fastest.loadEventEnd = results.loadEventEnd;
+        if (stats.fastest.download > results.download) stats.fastest.download = results.download;
+        if (stats.fastest.domInteractive > results.domInteractive) stats.fastest.domInteractive = results.domInteractive;
+        if (stats.fastest.loadEventStart > results.loadEventStart) stats.fastest.loadEventStart = results.loadEventStart;
+        if (stats.fastest.loadEventEnd > results.loadEventEnd) stats.fastest.loadEventEnd = results.loadEventEnd;
 
-        if (desc.fastest.download < results.download) desc.slowest.download = results.download;
-        if (desc.fastest.domInteractive < results.domInteractive) desc.slowest.domInteractive = results.domInteractive;
-        if (desc.fastest.loadEventStart < results.loadEventStart) desc.slowest.loadEventStart = results.loadEventStart;
-        if (desc.fastest.loadEventEnd < results.loadEventEnd) desc.slowest.loadEventEnd = results.loadEventEnd;
+        if (stats.fastest.download < results.download) stats.slowest.download = results.download;
+        if (stats.fastest.domInteractive < results.domInteractive) stats.slowest.domInteractive = results.domInteractive;
+        if (stats.fastest.loadEventStart < results.loadEventStart) stats.slowest.loadEventStart = results.loadEventStart;
+        if (stats.fastest.loadEventEnd < results.loadEventEnd) stats.slowest.loadEventEnd = results.loadEventEnd;
     }
     //console.log(stats);
 
