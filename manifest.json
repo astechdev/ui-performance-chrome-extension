@@ -12,7 +12,7 @@
     ],
     "background": {
         "persistent": true,
-        "scripts": ["background.js"]
+        "scripts": ["extra.js", "background.js"]
     },
     // "content_scripts": [
     //   {
