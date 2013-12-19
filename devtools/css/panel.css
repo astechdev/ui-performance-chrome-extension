@@ -1,0 +1,23 @@
+#fileInput {
+    width: 50%;
+    margin:4px 4px;
+}
+
+#repetitions {
+    width: 48px;
+}
+
+form {
+    margin-left: 4px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+table {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+#detailForm {
+    width: 50%;
+}

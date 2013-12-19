@@ -1,0 +1,13 @@
+<form class="form-inline" role="form">
+    <label for="repetitions">Repetitions</label>
+    <input type="text" id="repetitions" ng-model="settings.repetitions" placeholder="1">
+</form>
+<button type="button" class="btn btn-primary btn-xs" ng-click="run()">run</button>
+
+<table class="table table-hover table-condensed table-bordered" >
+    <tr ng-repeat="file in files" ng-click="edit(this)">
+        <td>{{file.page}} </td>
+        <td>{{file.description}}</td>
+    </tr>
+</table>
+
