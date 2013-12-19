@@ -32,7 +32,7 @@ var setupPage = function(tabId) {
             chrome.tabs.update(tabId, {url: url}, function(tab) {
 
                 console.log("### INFO: Starting Test | Page: %s%s \n### INFO: Description: '%s'\n" +
-                    "download, domInteractive, loadEventStart, loadEventEnd",
+                    "download, domInteractive, loadEventStart, loadEventEnd, processingTime",
                     url, pages[pages_iterator].page, pages[pages_iterator].description);
 
                 chrome.tabs.onUpdated.addListener(listener);
@@ -79,23 +79,39 @@ var printReport = function() {
 
 var printForExcel = function() {
 
-    console.log("\n\n###### FOR EXCEL ######");
+    var outputArray = [];
+    var toOutput = "";
 
-    console.log("\n , , download, domInteractive, loadEventStart, loadEventEnd, deviation, deviation, deviation, deviation ");
+    toOutput = toOutput + "\n\n###### FOR EXCEL ######";
+
+    toOutput = toOutput + "\n , , download, domInteractive, loadEventStart, loadEventEnd, processingTime, deviation, deviation, deviation, deviation, deviation ";
 
     pages.forEach(function(elem) {
 
-        console.log("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s", elem.page, elem.description, elem.stats.average.download, elem.stats.average.domInteractive,
-            elem.stats.average.loadEventStart, elem.stats.average.loadEventEnd, elem.stats.deviation.download, elem.stats.deviation.domInteractive,
-            elem.stats.deviation.loadEventStart, elem.stats.deviation.loadEventEnd);
+        outputArray.push("\n" + elem.page + "," + elem.description + "," +
+            elem.stats.average.download + "," + elem.stats.average.domInteractive + "," + elem.stats.average.loadEventStart + "," +
+                elem.stats.average.loadEventEnd + "," + (elem.stats.debugStats.TotalTime.time.average/1000).toFixed(3) + "," +
+            elem.stats.deviation.download + "," + elem.stats.deviation.domInteractive + "," + elem.stats.deviation.loadEventStart + "," +
+                elem.stats.deviation.loadEventEnd + "," + (elem.stats.debugStats.TotalTime.time.deviation/1000).toFixed(3) );
+
+        // console.log("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s", elem.page, elem.description,
+        //     elem.stats.average.download, elem.stats.average.domInteractive, elem.stats.average.loadEventStart,
+        //         elem.stats.average.loadEventEnd, elem.stats.debugStats.TotalTime.time.average,
+        //     elem.stats.deviation.download, elem.stats.deviation.domInteractive, elem.stats.deviation.loadEventStart,
+        //         elem.stats.deviation.loadEventEnd, elem.stats.debugStats.TotalTime.time.deviation);
 
     });
 
+    for (var i = 0; i < outputArray.length; i++) {
+        toOutput = toOutput + outputArray[i];
+    }
+
+    console.log(toOutput);
 
     console.log("\n\n###### FOR EXCEL !(DEBUG)! ######");
 
-    var outputArray = [];
-    var toOutput = "";
+    outputArray = [];
+    toOutput = "";
 
     pages.forEach(function(elem) {
 
@@ -274,8 +290,8 @@ var handleResponse = function(tabId, results) {
 
     var stats = pages[pages_iterator].stats;
 
-    console.log('%s, %s, %s, %s',
-        results.download, results.domInteractive, results.loadEventStart, results.loadEventEnd );
+    console.log('%s, %s, %s, %s, %s',
+        results.download, results.domInteractive, results.loadEventStart, results.loadEventEnd, (debugStats.TotalTime.time/1000).toFixed(3) );
 
     stats.runs[(rep_iterator-1)] = {download: 0, domInteractive: 0, loadEventStart: 0, loadEventEnd: 0};
 
