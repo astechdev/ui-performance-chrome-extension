@@ -39,3 +39,5 @@ All changes should be made in settings.js
 
 [Rendering Repaint Reflow Relayout Restyle](http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)
 
+[Chrome DevTools Timeline](https://developers.google.com/chrome-developer-tools/docs/timeline)
+
